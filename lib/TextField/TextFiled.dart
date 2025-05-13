@@ -17,6 +17,7 @@ class _TextInput extends State<TextInput> {
   Widget inputText() {
     return SizedBox(
       width: width * 0.6,
+      height: 40,
       child: TextField(
         decoration: InputDecoration(
           hintStyle: TextStyle(color: color.colorText1, fontSize: widget.size),

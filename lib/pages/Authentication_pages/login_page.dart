@@ -23,12 +23,12 @@ class _LoginPage extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextInput(hintText: "Email Address", size: 20),
+            TextInput(hintText: "Email Address", size: width * 0.04),
             Gap(20),
-            TextInput(hintText: "Password", size: 20),
+            TextInput(hintText: "Password", size: width * 0.04),
             Radio(value: 1, groupValue: 3, onChanged: null),
             Gap(20),
-            Button(text: "Create Account", width: width * 0.4),
+            Button(text: "Create Account", width: width * 0.5),
           ],
         ),
       ),
