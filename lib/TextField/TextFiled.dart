@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class TextInput extends StatefulWidget {
   final String hintText;
+  final double size;
 
-  const TextInput({super.key, required this.hintText});
+  const TextInput({super.key, required this.hintText, required this.size});
 
   @override
   State<TextInput> createState() => _TextInput();
@@ -15,10 +16,10 @@ class _TextInput extends State<TextInput> {
 
   Widget inputText() {
     return SizedBox(
-      width: width * 0.7,
+      width: width * 0.6,
       child: TextField(
         decoration: InputDecoration(
-          hintStyle: TextStyle(color: color.colorText1, fontSize: 16.sp),
+          hintStyle: TextStyle(color: color.colorText1, fontSize: widget.size),
           filled: true,
           fillColor: color.colorInput,
           hintText: widget.hintText,

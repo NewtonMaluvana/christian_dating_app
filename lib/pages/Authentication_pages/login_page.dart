@@ -1,3 +1,4 @@
+import 'package:dating_app/Buttons/button.dart';
 import 'package:dating_app/TextField/TextFiled.dart';
 import 'package:dating_app/colors/colors.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,19 @@ class _LoginPage extends State<LoginPage> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: color.bgColor,
-      body: Center(child: Column(children: [TextInput(hintText: "Name")])),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextInput(hintText: "Email Address", size: 20),
+            Gap(20),
+            TextInput(hintText: "Password", size: 20),
+            Radio(value: 1, groupValue: 3, onChanged: null),
+            Gap(20),
+            Button(text: "Create Account", width: width * 0.4),
+          ],
+        ),
+      ),
     );
   }
 }

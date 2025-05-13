@@ -7,7 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ScreenUtilInit(
+      designSize: Size(375, 812), // base size (e.g. iPhone X)
+      builder: (context, child) => MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,12 +20,11 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context)  {
-    
+  Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Dating app",
       debugShowCheckedModeBanner: false,
-      home:LoginPage() ,
+      home: LoginPage(),
     );
-  
+  }
 }
