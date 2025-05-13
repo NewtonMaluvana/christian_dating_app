@@ -68,8 +68,30 @@ class icons {
     size: size,
     color: color1,
   );
+  //drinking symbol
   static Icon drink = Icon(
-    HugeIcons.strokeRoundedSoftDrink01,
+    HugeIcons.strokeRoundedDrink,
+    size: size,
+    color: color1,
+  );
+
+  //baby symbol
+  static Icon baby = Icon(
+    HugeIcons.strokeRoundedBaby01,
+    size: size,
+    color: color1,
+  );
+
+  //interests icons *****************************
+  //baby symbol
+  static Icon movies = Icon(
+    HugeIcons.strokeRoundedTv01,
+    size: size,
+    color: color1,
+  );
+  //book icon
+  static Icon book = Icon(
+    HugeIcons.strokeRoundedBookOpen02,
     size: size,
     color: color1,
   );
