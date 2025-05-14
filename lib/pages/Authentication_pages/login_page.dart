@@ -64,12 +64,14 @@ class _LoginPage extends State<LoginPage> {
                 hintText: "Email Address",
                 size: fZize * .6,
                 width: btnWidth * 1.3,
+                height: 40,
               ),
               Gap(20),
               TextInput(
                 hintText: "Password",
                 size: fZize * .6,
                 width: btnWidth * 1.3,
+                height: 40,
               ),
               Container(
                 padding: EdgeInsets.only(right: (width / 2) * 0.6),
@@ -102,6 +104,7 @@ class _LoginPage extends State<LoginPage> {
                     ),
                     Gap(5),
                     InkWell(
+                      onTap: () {},
                       child: Text(
                         "sign up",
                         style: GoogleFonts.kronaOne(

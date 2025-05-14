@@ -64,12 +64,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Email Address",
                 size: fZize * .6,
                 width: btnWidth * 1.3,
+                height: 40,
               ),
               Gap(20),
               TextInput(
                 hintText: "Password",
                 size: fZize * .6,
                 width: btnWidth * 1.3,
+                height: 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

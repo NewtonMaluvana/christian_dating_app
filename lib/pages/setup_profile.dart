@@ -1,3 +1,4 @@
+import 'package:dating_app/Buttons/btncheckbox.dart';
 import 'package:dating_app/Buttons/button.dart';
 
 import 'package:dating_app/Fonts/size.dart';
@@ -18,7 +19,7 @@ class _SetupNameState extends State<SetupName> {
   double width = 0; //to store the size of device
   double height = 0; //to store the size of device
 
-  double fZize = 0; //font size
+  double fSize = 0; //font size
   double btnWidth = 0; //button width
   double btnHeight = 0; //button height
   double imageHieght = 0; //image height
@@ -32,11 +33,11 @@ class _SetupNameState extends State<SetupName> {
     if (width <= 450) {
       btnWidth = width * 0.6;
 
-      fZize = Size.fontSize1;
+      fSize = Size.fontSize1;
       imageHieght = width * 0.2;
     } else if (width > 450) {
       btnWidth = Size.btnWidth2;
-      fZize = Size.fontSize2;
+      fSize = Size.fontSize2;
       imageHieght = width * 0.08;
     }
     return Scaffold(
@@ -48,25 +49,51 @@ class _SetupNameState extends State<SetupName> {
           "Set up Profile",
           style: GoogleFonts.kronaOne(
             color: color.colorText2,
-            fontSize: fZize,
+            fontSize: fSize,
             fontWeight: FontWeight.w700,
           ),
         ),
       ),
       backgroundColor: color.bgColor,
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 200),
+        padding: EdgeInsets.only(top: 50),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextInput(
-                hintText: "Email Address",
-                size: fZize * .6,
+                hintText: "Username",
+                size: fSize * .8,
                 width: btnWidth * 1.3,
+                height: 50,
+              ),
+              Text(
+                "..this is how you will appear to other users",
+                style: GoogleFonts.kronaOne(fontSize: fSize * 0.5),
               ),
               Gap(20),
+              Text("Looking for", style: GoogleFonts.kronaOne(fontSize: fSize)),
+              Gap(20),
+              BtnCheckBox(
+                Text: "Mariage partner",
+                size: fSize,
+                width: btnWidth,
+              ),
+              Gap(20),
+              BtnCheckBox(Text: "Talk Buddy", size: fSize, width: btnWidth),
+              Gap(20),
+              BtnCheckBox(Text: "Friend", size: fSize, width: btnWidth),
+              Gap(20),
+              BtnCheckBox(
+                Text: "Worship partner",
+                size: fSize,
+                width: btnWidth,
+              ),
+              Gap(20),
+              BtnCheckBox(Text: "Anything", size: fSize, width: btnWidth),
+              Gap(50),
+              Button(text: "Next", width: btnWidth, size: fSize),
             ],
           ),
         ),
