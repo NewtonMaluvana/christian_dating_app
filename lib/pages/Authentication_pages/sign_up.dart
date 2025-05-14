@@ -67,36 +67,40 @@ class _SignUpPageState extends State<SignUpPage> {
               size: fZize * .6,
               width: btnWidth * 1.3,
             ),
-            Container(
-              padding: EdgeInsets.only(right: (width / 2) * 0.6),
-
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                children: [
-                  Checkbox(value: checked, onChanged: (value) {}),
-                  Gap(10),
-                  Text(
-                    "I agree with terms & condition",
-                    style: GoogleFonts.kronaOne(
-                      color: color.colorText2,
-                      fontWeight: FontWeight.bold,
-                      fontSize: fZize * 0.5,
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Checkbox(
+                  activeColor: const Color.fromARGB(255, 10, 28, 77),
+                  value: checked,
+                  onChanged: (value) {
+                    setState(() {
+                      checked = !checked;
+                    });
+                  },
+                ),
+                Gap(5),
+                Text(
+                  "I agree with terms & condition",
+                  style: GoogleFonts.kronaOne(
+                    color: color.colorText2,
+                    fontWeight: FontWeight.bold,
+                    fontSize: fZize * 0.4,
                   ),
-                  Gap(5),
-                  Text(
-                    "terms & comditions",
-                    style: GoogleFonts.kronaOne(
-                      color: color.colorText3,
-                      fontWeight: FontWeight.bold,
-                      fontSize: fZize * 0.5,
-                    ),
+                ),
+                Gap(5),
+                Text(
+                  "terms & comditions",
+                  style: GoogleFonts.kronaOne(
+                    color: color.colorText3,
+                    fontWeight: FontWeight.bold,
+                    fontSize: fZize * 0.4,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Gap(20),
+
+            Gap(10),
             Button(text: "Sign in", width: btnWidth, size: fZize),
             Container(
               alignment: Alignment.center,
