@@ -5,12 +5,14 @@ class TextInput extends StatefulWidget {
   final String hintText;
   final double size;
   final double width;
+  final TextEditingController? editController;
 
   const TextInput({
     super.key,
     required this.hintText,
     required this.size,
     required this.width,
+    this.editController,
   });
 
   @override
@@ -28,6 +30,7 @@ class _TextInput extends State<TextInput> {
       width: widget.width,
       height: 40,
       child: TextField(
+        controller: widget.editController,
         textAlign: TextAlign.start,
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(

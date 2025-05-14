@@ -1,5 +1,6 @@
 import 'package:dating_app/pages/Authentication_pages/login_page.dart';
 import 'package:dating_app/pages/Authentication_pages/sign_up.dart';
+import 'package:dating_app/pages/setup_profile.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Dating app",
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: SetupName(),
     );
   }
 }

@@ -23,6 +23,7 @@ class _ButtonState extends State<Button> {
       width: widget.width,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          elevation: 20,
           backgroundColor: color.btnColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
