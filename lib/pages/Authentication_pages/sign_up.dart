@@ -1,5 +1,4 @@
 import 'package:dating_app/Buttons/button.dart';
-import 'package:dating_app/Fonts/Fonts.dart';
 import 'package:dating_app/Fonts/size.dart';
 import 'package:dating_app/TextField/TextFiled.dart';
 import 'package:dating_app/colors/colors.dart';
@@ -7,16 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPage();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPage extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   double width = 0; //to store the size of device
   double height = 0; //to store the size of device
+  bool checked = false;
 
   double fZize = 0; //font size
   double btnWidth = 0; //font size
@@ -69,17 +69,31 @@ class _LoginPage extends State<LoginPage> {
             ),
             Container(
               padding: EdgeInsets.only(right: (width / 2) * 0.6),
-              alignment: Alignment.topRight,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Forgot Password?",
-                  style: GoogleFonts.kronaOne(
-                    color: color.colorText2,
-                    fontWeight: FontWeight.bold,
-                    fontSize: fZize * 0.6,
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Checkbox(value: checked, onChanged: (value) {}),
+                  Gap(10),
+                  Text(
+                    "I agree with terms & condition",
+                    style: GoogleFonts.kronaOne(
+                      color: color.colorText2,
+                      fontWeight: FontWeight.bold,
+                      fontSize: fZize * 0.5,
+                    ),
                   ),
-                ),
+                  Gap(5),
+                  Text(
+                    "terms & comditions",
+                    style: GoogleFonts.kronaOne(
+                      color: color.colorText3,
+                      fontWeight: FontWeight.bold,
+                      fontSize: fZize * 0.5,
+                    ),
+                  ),
+                ],
               ),
             ),
             Gap(20),
