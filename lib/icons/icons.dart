@@ -42,9 +42,9 @@ class icons {
   );
 
   //right facing arrow
-  static Icon arrow = Icon(
+  static Icon arrowLeft = Icon(
     HugeIcons.strokeRoundedArrowLeft02,
-    size: size,
+    size: 15,
     color: color1,
   );
 

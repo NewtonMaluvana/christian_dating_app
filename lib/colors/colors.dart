@@ -8,6 +8,7 @@ class color {
   static Color colorText2 = const Color.fromARGB(255, 73, 19, 116);
   static Color colorText3 = const Color.fromARGB(255, 226, 97, 5);
   static Color checkColor1 = const Color.fromARGB(255, 226, 97, 5);
+  static Color backbtnColr = const Color.fromARGB(255, 50, 8, 108);
   static Color checkColor2 = const Color.fromARGB(255, 5, 93, 226);
   static Color checBoxColor = const Color.fromARGB(149, 137, 54, 179);
 

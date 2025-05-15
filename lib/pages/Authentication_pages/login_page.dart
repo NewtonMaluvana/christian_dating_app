@@ -1,5 +1,4 @@
 import 'package:dating_app/Buttons/button.dart';
-import 'package:dating_app/Fonts/Fonts.dart';
 import 'package:dating_app/Fonts/size.dart';
 import 'package:dating_app/TextField/TextField.dart';
 import 'package:dating_app/colors/colors.dart';
