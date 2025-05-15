@@ -1,6 +1,6 @@
 import 'package:dating_app/Buttons/btncheckbox.dart';
 import 'package:dating_app/Buttons/button.dart';
-
+import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
 import 'package:dating_app/TextField/TextField.dart';
 import 'package:dating_app/colors/colors.dart';
@@ -55,51 +55,66 @@ class _SetupNameState extends State<SetupName> {
         ),
       ),
       backgroundColor: color.bgColor,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 100),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextInput(
-                hintText: "Username",
-                size: fSize * .8,
-                width: btnWidth * 1.3,
-                height: 50,
-              ),
-              Text(
-                "..this is how you will appear to other users",
-                style: GoogleFonts.kronaOne(
-                  fontSize: fSize * 0.5,
-                  color: color.colorText3,
-                ),
-              ),
-              Gap(20),
-              Text("Looking for", style: GoogleFonts.kronaOne(fontSize: fSize)),
-              Gap(20),
-              BtnCheckBox(
-                Text: "Mariage partner",
-                size: fSize,
-                width: btnWidth,
-              ),
-              Gap(20),
-              BtnCheckBox(Text: "Talk Buddy", size: fSize, width: btnWidth),
-              Gap(20),
-              BtnCheckBox(Text: "Friend", size: fSize, width: btnWidth),
-              Gap(20),
-              BtnCheckBox(
-                Text: "Worship partner",
-                size: fSize,
-                width: btnWidth,
-              ),
-              Gap(20),
-              BtnCheckBox(Text: "Anything", size: fSize, width: btnWidth),
-              Gap(100),
-              Button(text: "Next", width: btnWidth, size: fSize),
-            ],
+      body: Column(
+        children: [
+          LinearProgressBar(
+            dotsSpacing: EdgeInsets.all(10),
+            maxSteps: 9,
+            progressType: LinearProgressBar.progressTypeDots,
+            progressColor: color.progressColor,
+            backgroundColor: color.bgProgressColor,
+            currentStep: 2,
           ),
-        ),
+          SingleChildScrollView(
+            padding: EdgeInsets.only(top: 100),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextInput(
+                    hintText: "Username",
+                    size: fSize * .8,
+                    width: btnWidth * 1.3,
+                    height: 50,
+                  ),
+                  Text(
+                    "..this is how you will appear to other users",
+                    style: GoogleFonts.kronaOne(
+                      fontSize: fSize * 0.5,
+                      color: color.colorText3,
+                    ),
+                  ),
+                  Gap(20),
+                  Text(
+                    "Looking for",
+                    style: GoogleFonts.kronaOne(fontSize: fSize),
+                  ),
+                  Gap(20),
+                  BtnCheckBox(
+                    Text: "Mariage partner",
+                    size: fSize,
+                    width: btnWidth,
+                  ),
+                  Gap(20),
+                  BtnCheckBox(Text: "Talk Buddy", size: fSize, width: btnWidth),
+                  Gap(20),
+                  BtnCheckBox(Text: "Friend", size: fSize, width: btnWidth),
+                  Gap(20),
+                  BtnCheckBox(
+                    Text: "Worship partner",
+                    size: fSize,
+                    width: btnWidth,
+                  ),
+                  Gap(20),
+                  BtnCheckBox(Text: "Anything", size: fSize, width: btnWidth),
+                  Gap(100),
+                  Button(text: "Next", width: btnWidth, size: fSize),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
