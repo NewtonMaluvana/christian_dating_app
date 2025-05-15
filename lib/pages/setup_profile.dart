@@ -56,7 +56,7 @@ class _SetupNameState extends State<SetupName> {
       ),
       backgroundColor: color.bgColor,
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 50),
+        padding: EdgeInsets.only(top: 100),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,7 +70,10 @@ class _SetupNameState extends State<SetupName> {
               ),
               Text(
                 "..this is how you will appear to other users",
-                style: GoogleFonts.kronaOne(fontSize: fSize * 0.5),
+                style: GoogleFonts.kronaOne(
+                  fontSize: fSize * 0.5,
+                  color: color.colorText3,
+                ),
               ),
               Gap(20),
               Text("Looking for", style: GoogleFonts.kronaOne(fontSize: fSize)),
@@ -92,7 +95,7 @@ class _SetupNameState extends State<SetupName> {
               ),
               Gap(20),
               BtnCheckBox(Text: "Anything", size: fSize, width: btnWidth),
-              Gap(50),
+              Gap(100),
               Button(text: "Next", width: btnWidth, size: fSize),
             ],
           ),

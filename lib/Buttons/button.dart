@@ -32,7 +32,7 @@ class _ButtonState extends State<Button> {
         onPressed: () {},
         child: Text(
           widget.text,
-          style: TextStyle(fontSize: widget.size, color: color.colorText2),
+          style: TextStyle(fontSize: widget.size, color: color.colorText1),
         ),
       ),
     );
