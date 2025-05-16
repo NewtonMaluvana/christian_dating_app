@@ -53,125 +53,143 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
       backgroundColor: color.bgColor,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 200),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextInput(
-                hintText: "Email Address",
-                size: fZize * .6,
-                width: btnWidth * 1.3,
-                height: 40,
-              ),
-              Gap(20),
-              TextInput(
-                hintText: "Password",
-                size: fZize * .6,
-                width: btnWidth * 1.3,
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Checkbox(
-                    activeColor: const Color.fromARGB(255, 10, 28, 77),
-                    value: checked,
-                    onChanged: (value) {
-                      setState(() {
-                        checked = !checked;
-                      });
-                    },
-                  ),
-                  Gap(5),
-                  Text(
-                    "I agree with terms & condition",
-                    style: GoogleFonts.kronaOne(
-                      color: color.colorText2,
-                      fontWeight: FontWeight.w300,
-                      fontSize: fZize * 0.4,
-                    ),
-                  ),
-                  Gap(5),
-                  Text(
-                    "terms & comditions",
-                    style: GoogleFonts.kronaOne(
-                      color: color.colorText3,
-                      fontWeight: FontWeight.w300,
-                      fontSize: fZize * 0.4,
-                    ),
-                  ),
-                ],
-              ),
-
-              Gap(10),
-              Button(text: "Create account", width: btnWidth, size: fZize),
-              Container(
-                alignment: Alignment.center,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Dont Have an Account?",
-                      style: GoogleFonts.roboto(fontSize: fZize * 0.6),
-                    ),
-                    Gap(5),
-                    Text(
-                      "sign up",
-                      style: GoogleFonts.kronaOne(
-                        fontSize: fZize * 0.6,
-                        color: color.colorText3,
-                      ),
-                    ),
-                  ],
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("images/bg.jpg"),
+                  fit: BoxFit.cover,
                 ),
               ),
-              Gap(20),
-              Container(
-                alignment: Alignment.center,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Or Sign up With ",
-                    style: GoogleFonts.roboto(
-                      fontSize: fZize * 0.8,
-                      color: color.colorText2,
-                    ),
+              child: SingleChildScrollView(
+                padding: EdgeInsets.only(top: 200),
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextInput(
+                        hintText: "Email Address",
+                        size: fZize * .6,
+                        width: btnWidth * 1.3,
+                        height: 40,
+                      ),
+                      Gap(20),
+                      TextInput(
+                        hintText: "Password",
+                        size: fZize * .6,
+                        width: btnWidth * 1.3,
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            activeColor: const Color.fromARGB(255, 10, 28, 77),
+                            value: checked,
+                            onChanged: (value) {
+                              setState(() {
+                                checked = !checked;
+                              });
+                            },
+                          ),
+                          Gap(5),
+                          Text(
+                            "I agree with terms & condition",
+                            style: GoogleFonts.kronaOne(
+                              color: color.colorText2,
+                              fontWeight: FontWeight.w300,
+                              fontSize: fZize * 0.4,
+                            ),
+                          ),
+                          Gap(5),
+                          Text(
+                            "terms & comditions",
+                            style: GoogleFonts.kronaOne(
+                              color: color.colorText3,
+                              fontWeight: FontWeight.w300,
+                              fontSize: fZize * 0.4,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Gap(10),
+                      Button(
+                        text: "Create account",
+                        width: btnWidth,
+                        size: fZize,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Dont Have an Account?",
+                              style: GoogleFonts.roboto(fontSize: fZize * 0.6),
+                            ),
+                            Gap(5),
+                            Text(
+                              "sign up",
+                              style: GoogleFonts.kronaOne(
+                                fontSize: fZize * 0.6,
+                                color: color.colorText3,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Gap(20),
+                      Container(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Or Sign up With ",
+                            style: GoogleFonts.roboto(
+                              fontSize: fZize * 0.8,
+                              color: color.colorText2,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Gap(10),
+                      Container(
+                        alignment: Alignment.center,
+
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipOval(
+                              child: Image(
+                                height: imageHieght,
+                                fit: BoxFit.contain,
+
+                                image: AssetImage('images/google.jpg'),
+                              ),
+                            ),
+                            Gap(20),
+                            ClipOval(
+                              child: Image(
+                                fit: BoxFit.fill,
+                                height: imageHieght,
+                                image: AssetImage('images/facebook.png'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Gap(10),
-              Container(
-                alignment: Alignment.center,
-
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ClipOval(
-                      child: Image(
-                        height: imageHieght,
-                        fit: BoxFit.contain,
-
-                        image: AssetImage('images/google.jpg'),
-                      ),
-                    ),
-                    Gap(20),
-                    ClipOval(
-                      child: Image(
-                        fit: BoxFit.fill,
-                        height: imageHieght,
-                        image: AssetImage('images/facebook.png'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
