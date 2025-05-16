@@ -72,6 +72,8 @@ flutter:
     - images/google.jpg
     - images/facebook.png
     - images/bg.jpg
+    - images/male.png
+    - images/female.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

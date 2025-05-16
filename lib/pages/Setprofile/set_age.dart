@@ -29,6 +29,7 @@ class _SetAgePageState extends State<SetAgePage> {
   double btnWidth = 0; //button width
   double btnHeight = 0; //button height
   double imageHieght = 0; //image height
+  bool checked = false;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -230,13 +231,43 @@ class _SetAgePageState extends State<SetAgePage> {
                       "Gender",
                       style: GoogleFonts.kronaOne(
                         color: color.colorText3,
-                        fontSize: fSize * 1.2,
+                        fontSize: fSize * 1.8,
                       ),
                     ),
+                    Gap(20),
                     Row(
+                      spacing: 50,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Column(
-                          children: [Checkbox(value: true, onChanged: (v) {})],
+                          children: [
+                            Checkbox(value: checked, onChanged: (v) {}),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  checked = !checked;
+                                });
+                              },
+                              child: Image(
+                                image: AssetImage("images/male.png"),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Checkbox(value: checked, onChanged: (v) {}),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  checked = !checked;
+                                });
+                              },
+                              child: Image(
+                                image: AssetImage("images/female.png"),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
