@@ -43,6 +43,8 @@ dependencies:
   linear_progress_bar: ^1.2.0
   bottom_picker: ^3.1.0
   date_field: ^6.0.3+1
+  intl: ^0.20.2
+  jiffy: ^6.4.3
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,14 @@
 import 'package:bottom_picker/resources/arrays.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_app/icons/icons.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
 import 'package:dating_app/colors/colors.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
+import 'package:jiffy/jiffy.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,13 +22,50 @@ class SetAgePage extends StatefulWidget {
 class _SetAgePageState extends State<SetAgePage> {
   double width = 0; //to store the size of device
   double height = 0; //to store the size of device
-
+  int day = 01;
+  int year = 2025;
+  String month = "Jan";
   double fSize = 0; //font size
   double btnWidth = 0; //button width
   double btnHeight = 0; //button height
   double imageHieght = 0; //image height
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  //format month number into a string
+
+  String getMonthName(int monthNumber) {
+    final date = DateTime(2023, monthNumber);
+    return Jiffy.parseFromDateTime(
+      date,
+    ).format(pattern: 'MMMM'); // Full month name
+  }
+
+  //date picker
+  void datePicer(BuildContext context) {
+    BottomPicker.date(
+      buttonWidth: 200,
+      pickerTextStyle: TextStyle(color: Colors.white),
+      backgroundColor: Colors.deepPurpleAccent,
+
+      dateOrder: DatePickerDateOrder.dmy,
+      onSubmit: (value) {},
+      onChange: (p0) {
+        setState(() {
+          year = int.parse(p0.toString().split("-")[0]);
+          month = getMonthName(int.parse(p0.toString().split("-")[1]));
+          day = int.parse(p0.toString().split("-")[2].split(" ")[0]);
+        });
+        print(p0.toString().split("-")[2].split(" ")[0]);
+      },
+      bottomPickerTheme: BottomPickerTheme.morningSalad,
+      pickerTitle: Text("Date of birth"),
+      minDateTime: DateTime(1900, 5, 1),
+      initialDateTime: DateTime.now(),
+      maxDateTime: null,
+    ).show(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -40,6 +81,7 @@ class _SetAgePageState extends State<SetAgePage> {
       fSize = Size.fontSize2;
       imageHieght = width * 0.08;
     }
+
     return Scaffold(
       appBar: AppBar(
         leadingWidth: btnWidth * 0.2,
@@ -120,15 +162,83 @@ class _SetAgePageState extends State<SetAgePage> {
                       ),
                     ),
                     Gap(20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 10,
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          width: btnWidth * 0.3,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: color.btnColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            day.toString(),
+                            style: GoogleFonts.kronaOne(
+                              color: color.colorText3,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          width: btnWidth * 0.3,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: color.btnColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            month.substring(0, 3),
+                            style: GoogleFonts.kronaOne(
+                              color: color.colorText3,
+                            ),
+                          ),
+                        ),
+
+                        Container(
+                          alignment: Alignment.center,
+                          width: btnWidth * 0.3,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: color.btnColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            year.toString(),
+                            style: GoogleFonts.kronaOne(
+                              color: color.colorText3,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Gap(20),
                     SizedBox(
-                      width: width * 0.6,
-                      child: BottomPicker.date(
-                        onChange: (p0) {},
-                        bottomPickerTheme: BottomPickerTheme.morningSalad,
-                        pickerTitle: Text("Date of birth"),
-                        minDateTime: DateTime(1900, 5, 1),
-                        maxDateTime: DateTime(2025, 8, 2),
+                      width: btnWidth * 0.8,
+                      height: 40,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          datePicer(context);
+                        },
+                        child: Text("set"),
                       ),
+                    ),
+                    Gap(40),
+                    Text(
+                      "Gender",
+                      style: GoogleFonts.kronaOne(
+                        color: color.colorText3,
+                        fontSize: fSize * 1.2,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Column(
+                          children: [Checkbox(value: true, onChanged: (v) {})],
+                        ),
+                      ],
                     ),
                   ],
                 ),

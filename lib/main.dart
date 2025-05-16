@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Dating app",
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: SetAgePage(),
     );
   }
 }
