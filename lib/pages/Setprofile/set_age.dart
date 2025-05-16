@@ -1,13 +1,9 @@
 import 'package:bottom_picker/resources/arrays.dart';
 import 'package:flutter/material.dart';
-import 'package:dating_app/Buttons/btncheckbox.dart';
-import 'package:dating_app/Buttons/button.dart';
 import 'package:dating_app/icons/icons.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
-import 'package:date_field/date_field.dart';
 import 'package:dating_app/colors/colors.dart';
-import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,9 +25,8 @@ class _SetAgePageState extends State<SetAgePage> {
   double imageHieght = 0; //image height
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
   @override
-  Future<Widget> build(BuildContext context) async {
+  Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
 
@@ -125,16 +120,15 @@ class _SetAgePageState extends State<SetAgePage> {
                       ),
                     ),
                     Gap(20),
-                    DateTimeFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'Enter Date',
+                    SizedBox(
+                      width: width * 0.6,
+                      child: BottomPicker.date(
+                        onChange: (p0) {},
+                        bottomPickerTheme: BottomPickerTheme.morningSalad,
+                        pickerTitle: Text("Date of birth"),
+                        minDateTime: DateTime(1900, 5, 1),
+                        maxDateTime: DateTime(2025, 8, 2),
                       ),
-                      firstDate: DateTime.now().add(const Duration(days: 10)),
-                      lastDate: DateTime.now().add(const Duration(days: 40)),
-                      initialPickerDateTime: DateTime.now().add(
-                        const Duration(days: 20),
-                      ),
-                      onChanged: (DateTime? value) {},
                     ),
                   ],
                 ),

@@ -1,14 +1,12 @@
+import 'package:dating_app/pages/Authentication_pages/login_page.dart';
+import 'package:dating_app/pages/Authentication_pages/sign_up.dart';
 import 'package:dating_app/pages/Setprofile/set_age.dart';
 import 'package:dating_app/pages/Setprofile/set_username.dart';
 import 'package:flutter/material.dart';
 
-import 'package:intl/intl_standalone.dart'
-    if (dart.library.html) 'package:intl/intl_browser.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await findSystemLocale();
+void main() {
   runApp(const MyApp());
 }
 
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Dating app",
       debugShowCheckedModeBanner: false,
-      home: SetAgePage(),
+      home: SignUpPage(),
     );
   }
 }
