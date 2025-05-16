@@ -45,7 +45,7 @@ class _LoginPage extends State<LoginPage> {
           textAlign: TextAlign.center,
           "Sign in",
           style: GoogleFonts.kronaOne(
-            color: color.colorText2,
+            color: color.btnColor,
             fontSize: fZize,
             fontWeight: FontWeight.w700,
           ),

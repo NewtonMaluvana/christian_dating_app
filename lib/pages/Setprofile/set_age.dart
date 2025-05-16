@@ -1,4 +1,5 @@
 import 'package:bottom_picker/resources/arrays.dart';
+import 'package:dating_app/Buttons/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_app/icons/icons.dart';
@@ -123,6 +124,7 @@ class _SetAgePageState extends State<SetAgePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    Gap(20),
                     Container(
                       height: 20,
                       width: width * 0.8,
@@ -178,7 +180,7 @@ class _SetAgePageState extends State<SetAgePage> {
                           child: Text(
                             day.toString(),
                             style: GoogleFonts.kronaOne(
-                              color: color.colorText3,
+                              color: color.colorText1,
                             ),
                           ),
                         ),
@@ -193,7 +195,7 @@ class _SetAgePageState extends State<SetAgePage> {
                           child: Text(
                             month.substring(0, 3),
                             style: GoogleFonts.kronaOne(
-                              color: color.colorText3,
+                              color: color.colorText1,
                             ),
                           ),
                         ),
@@ -209,7 +211,7 @@ class _SetAgePageState extends State<SetAgePage> {
                           child: Text(
                             year.toString(),
                             style: GoogleFonts.kronaOne(
-                              color: color.colorText3,
+                              color: color.colorText1,
                             ),
                           ),
                         ),
@@ -271,6 +273,8 @@ class _SetAgePageState extends State<SetAgePage> {
                         ),
                       ],
                     ),
+                    Gap(100),
+                    Button(size: fSize, width: btnWidth, text: "Next"),
                   ],
                 ),
               ),
