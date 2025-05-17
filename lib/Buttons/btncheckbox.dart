@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BtnCheckBox extends StatefulWidget {
-  final String Text;
+  final String text;
   final double size;
   final double width;
   final double? height;
@@ -11,7 +11,7 @@ class BtnCheckBox extends StatefulWidget {
 
   const BtnCheckBox({
     super.key,
-    required this.Text,
+    required this.text,
     required this.size,
     required this.width,
     this.editController,
@@ -53,7 +53,7 @@ class _CheckBoxState extends State<BtnCheckBox> {
             ),
           ),
           Text(
-            widget.Text,
+            widget.text,
             textAlign: TextAlign.end,
             style: GoogleFonts.kronaOne(color: Colors.white),
           ),

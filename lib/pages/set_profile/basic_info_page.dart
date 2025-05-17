@@ -1,10 +1,13 @@
+import 'dart:math';
+
 import 'package:dating_app/Buttons/btncheckbox.dart';
 import 'package:dating_app/Buttons/button.dart';
 import 'package:dating_app/icons/icons.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
-
+import 'package:toggle_switch/toggle_switch.dart';
 import 'package:dating_app/colors/colors.dart';
 import 'package:vertical_weight_slider/vertical_weight_slider.dart';
 import 'package:flutter/material.dart';
@@ -24,15 +27,16 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
   double height = 0; //to store the size of device
   late WeightSliderController _controller;
   int intHeight = 30;
+  String unit = "CM";
 
-  bool isCm = true;
-  final List<int> heights = List.generate(151, (i) => 100 + i);
+  int isCm = 0;
+  final List<int> heights = List.generate(300, (i) => 300 - i);
   double fSize = 0; //font size
   double btnWidth = 0; //button width
   double btnHeight = 0; //button height
   double imageHieght = 0; //image height
   bool checked = false;
-  final List<String> countryData = [
+  final List<String> raceData = [
     "Black",
     "White",
     "Black/African",
@@ -115,11 +119,11 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
     if (width <= 450) {
       btnWidth = width * 0.6;
 
-      fSize = Size.fontSize1;
+      fSize = Sizes.fontSize1;
       imageHieght = width * 0.2;
     } else if (width > 450) {
-      btnWidth = Size.btnWidth2;
-      fSize = Size.fontSize2;
+      btnWidth = Sizes.btnWidth2;
+      fSize = Sizes.fontSize2;
       imageHieght = width * 0.08;
     }
     return Scaffold(
@@ -359,7 +363,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                 ),
                                 Gap(20),
                                 Text(
-                                  countryData[RaceIndex],
+                                  raceData[RaceIndex],
                                   style: GoogleFonts.kronaOne(
                                     color: color.colorText1,
                                   ),
@@ -371,12 +375,43 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                       ],
                     ),
                     Gap(20),
-                    Text(
-                      "Height",
-                      style: GoogleFonts.kronaOne(
-                        fontSize: fSize,
-                        color: color.colorText3,
-                      ),
+                    Row(
+                      spacing: 20,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Height",
+                          style: GoogleFonts.kronaOne(
+                            fontSize: fSize,
+                            color: color.colorText3,
+                          ),
+                        ),
+                        AnimatedToggleSwitch<int>.size(
+                          onChanged:
+                              (value) => {
+                                setState(() {
+                                  isCm = value;
+                                  if (isCm == 0) {
+                                    unit = "CM";
+                                    intHeight = (intHeight * 30.48).toInt();
+                                  } else {
+                                    unit = "FT";
+                                    intHeight =
+                                        (intHeight * 0.032808399).toInt();
+                                  }
+                                }),
+                              },
+                          current: isCm,
+                          values: [0, 1],
+                          indicatorSize: Size.fromWidth(50),
+
+                          iconList: [Text("CM"), Text("FT")],
+                          style: ToggleStyle(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          // states: [isCm],
+                        ),
+                      ],
                     ),
                     Gap(5),
                     Container(
@@ -390,13 +425,22 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                       ),
                       width: btnWidth * 1.2,
                       child: CupertinoPicker(
-                        itemExtent: 40,
+                        useMagnifier: true,
+                        itemExtent: 30,
                         onSelectedItemChanged: (v) {
-                          intHeight = v;
+                          setState(() {
+                            if (isCm == 0) {
+                              intHeight = v;
+                              unit = "CM";
+                            } else {
+                              intHeight = (v * 0.032808399).toInt();
+                              unit = "FT";
+                            }
+                          });
                         },
                         children:
                             heights
-                                .map((v) => Center(child: Text('$v cm')))
+                                .map((v) => Center(child: Text('$v $unit')))
                                 .toList(),
                       ),
                     ),

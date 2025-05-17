@@ -1,4 +1,4 @@
-class Size {
+class Sizes {
   static final double fontSize1 = 20;
   static final double fontSize2 = 30;
   static final double fontSize3 = 40;

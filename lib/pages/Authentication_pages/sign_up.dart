@@ -31,11 +31,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
     if (width <= 450) {
       btnWidth = width * 0.6;
-      fZize = Size.fontSize1;
+      fZize = Sizes.fontSize1;
       imageHieght = width * 0.2;
     } else if (width > 450) {
-      btnWidth = Size.btnWidth2;
-      fZize = Size.fontSize2;
+      btnWidth = Sizes.btnWidth2;
+      fZize = Sizes.fontSize2;
       imageHieght = width * 0.08;
     }
     return Scaffold(

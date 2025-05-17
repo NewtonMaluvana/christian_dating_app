@@ -34,11 +34,11 @@ class _SetupNameState extends State<SetupName> {
     if (width <= 450) {
       btnWidth = width * 0.6;
 
-      fSize = Size.fontSize1;
+      fSize = Sizes.fontSize1;
       imageHieght = width * 0.2;
     } else if (width > 450) {
-      btnWidth = Size.btnWidth2;
-      fSize = Size.fontSize2;
+      btnWidth = Sizes.btnWidth2;
+      fSize = Sizes.fontSize2;
       imageHieght = width * 0.08;
     }
     return Scaffold(
@@ -142,31 +142,31 @@ class _SetupNameState extends State<SetupName> {
                             ),
                             Gap(20),
                             BtnCheckBox(
-                              Text: "Mariage partner",
+                              text: "Mariage partner",
                               size: fSize,
                               width: btnWidth,
                             ),
                             Gap(20),
                             BtnCheckBox(
-                              Text: "Talk Buddy",
+                              text: "Talk Buddy",
                               size: fSize,
                               width: btnWidth,
                             ),
                             Gap(20),
                             BtnCheckBox(
-                              Text: "Friend",
+                              text: "Friend",
                               size: fSize,
                               width: btnWidth,
                             ),
                             Gap(20),
                             BtnCheckBox(
-                              Text: "Worship partner",
+                              text: "Worship partner",
                               size: fSize,
                               width: btnWidth,
                             ),
                             Gap(20),
                             BtnCheckBox(
-                              Text: "Anything",
+                              text: "Anything",
                               size: fSize,
                               width: btnWidth,
                             ),

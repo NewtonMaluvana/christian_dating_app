@@ -46,6 +46,8 @@ dependencies:
   custom_bottom_picker: ^1.0.2
   vertical_weight_slider: ^2.6.0
   action_slider: ^0.7.0
+  toggle_switch: ^2.3.0
+  animated_toggle_switch: ^0.8.5
 
 dev_dependencies:
   flutter_test:

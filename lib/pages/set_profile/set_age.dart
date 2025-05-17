@@ -76,11 +76,11 @@ class _SetAgePageState extends State<SetAgePage> {
     if (width <= 450) {
       btnWidth = width * 0.6;
 
-      fSize = Size.fontSize1;
+      fSize = Sizes.fontSize1;
       imageHieght = width * 0.2;
     } else if (width > 450) {
-      btnWidth = Size.btnWidth2;
-      fSize = Size.fontSize2;
+      btnWidth = Sizes.btnWidth2;
+      fSize = Sizes.fontSize2;
       imageHieght = width * 0.08;
     }
 
