@@ -1,8 +1,8 @@
 import 'package:dating_app/pages/Authentication_pages/login_page.dart';
 import 'package:dating_app/pages/Authentication_pages/sign_up.dart';
-import 'package:dating_app/pages/Setprofile/basic_info_page.dart';
-import 'package:dating_app/pages/Setprofile/set_age.dart';
-import 'package:dating_app/pages/Setprofile/set_username.dart';
+import 'package:dating_app/pages/set_profile/basic_info_page.dart';
+import 'package:dating_app/pages/set_profile/set_age.dart';
+import 'package:dating_app/pages/set_profile/set_username.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get_navigation/src/root/get_material_app.dart';

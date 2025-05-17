@@ -45,6 +45,7 @@ dependencies:
   jiffy: ^6.4.3
   custom_bottom_picker: ^1.0.2
   vertical_weight_slider: ^2.6.0
+  action_slider: ^0.7.0
 
 dev_dependencies:
   flutter_test:

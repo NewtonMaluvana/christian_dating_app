@@ -1,10 +1,12 @@
 import 'package:dating_app/Buttons/btncheckbox.dart';
 import 'package:dating_app/Buttons/button.dart';
 import 'package:dating_app/icons/icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
-import 'package:dating_app/TextField/TextField.dart';
+
 import 'package:dating_app/colors/colors.dart';
+import 'package:vertical_weight_slider/vertical_weight_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +22,11 @@ class BasicInfoPage extends StatefulWidget {
 class _BasicInfoPageState extends State<BasicInfoPage> {
   double width = 0; //to store the size of device
   double height = 0; //to store the size of device
+  late WeightSliderController _controller;
+  int intHeight = 30;
 
+  bool isCm = true;
+  final List<int> heights = List.generate(151, (i) => 100 + i);
   double fSize = 0; //font size
   double btnWidth = 0; //button width
   double btnHeight = 0; //button height
@@ -83,6 +89,22 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
 
       return;
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = WeightSliderController(
+      initialWeight: intHeight.toDouble(),
+      minWeight: 0,
+      interval: 0.1,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -348,7 +370,36 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                         ),
                       ],
                     ),
-
+                    Gap(20),
+                    Text(
+                      "Height",
+                      style: GoogleFonts.kronaOne(
+                        fontSize: fSize,
+                        color: color.colorText3,
+                      ),
+                    ),
+                    Gap(5),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.symmetric(
+                          horizontal: BorderSide(
+                            width: 1,
+                            color: color.btnColor,
+                          ),
+                        ),
+                      ),
+                      width: btnWidth * 1.2,
+                      child: CupertinoPicker(
+                        itemExtent: 40,
+                        onSelectedItemChanged: (v) {
+                          intHeight = v;
+                        },
+                        children:
+                            heights
+                                .map((v) => Center(child: Text('$v cm')))
+                                .toList(),
+                      ),
+                    ),
                     Gap(100),
                     Button(text: "Next", width: btnWidth, size: fSize),
                   ],
