@@ -8,6 +8,7 @@ import 'package:dating_app/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:custom_bottom_picker/custom_bottom_picker.dart';
 
 class BasicInfoPage extends StatefulWidget {
   const BasicInfoPage({super.key});
@@ -25,8 +26,65 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
   double btnHeight = 0; //button height
   double imageHieght = 0; //image height
   bool checked = false;
+  final List<String> countryData = [
+    "Black",
+    "White",
+    "Black/African",
+    "Black American",
+    "White",
+    "mixed race",
+    "Caucasian",
+    "Hispanic",
+    "Asian",
+    "Caribbean",
+    "European",
+    "Indian",
+    "Middle Eastern",
+    "Others",
+  ];
+  int RaceIndex = 13;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void listPicker() async {
+    final result = await showCustomBottomPicker(
+      useSafeArea: true,
+      barrierColor: Colors.amber,
+      context: context,
+      options: const CustomBottomPickerOptions(pickerTitle: "Ethiicity"),
+      sections: [
+        CustomBottomPickerSection.list(
+          id: "ethinicty",
+          defaultIndex: RaceIndex,
+          children: [
+            "Black",
+            "White",
+            "Black/African",
+            "Black American",
+
+            "White",
+            "mixed race",
+            "Caucasian",
+            "Hispanic",
+            "Asian",
+            "Caribbean",
+            "European",
+            "Indian",
+            "Middle Eastern",
+            "Others",
+          ],
+        ),
+      ],
+    );
+    if (result != null) {
+      setState(() {
+        RaceIndex = result.getById("ethinicty")!.toInt();
+      });
+
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -256,126 +314,42 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                             ],
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
-                          width: btnWidth * 1.2,
-                          decoration: BoxDecoration(
-                            color: color.btnColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            spacing: 10,
-                            children: [
-                              Text(
-                                "Education level",
-                                style: GoogleFonts.roboto(
-                                  fontSize: fSize * 1.2,
-                                  color: color.colorText3,
+                        GestureDetector(
+                          onTap: () {
+                            listPicker();
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(1),
+                            width: btnWidth * 1.2,
+
+                            decoration: BoxDecoration(
+                              color: color.btnColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Ethnicity",
+                                  style: GoogleFonts.kronaOne(
+                                    color: color.colorText3,
+                                    fontSize: fSize,
+                                  ),
                                 ),
-                              ),
-                              Column(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        checked = !checked;
-                                      });
-                                    },
-                                    child: Row(
-                                      spacing: 5,
-                                      children: [
-                                        Checkbox(
-                                          value: checked,
-                                          onChanged: (v) {},
-                                        ),
-                                        Text(
-                                          "High School",
-                                          style: GoogleFonts.kronaOne(
-                                            color: color.colorText1,
-                                            fontSize: fSize * 0.6,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                Gap(20),
+                                Text(
+                                  countryData[RaceIndex],
+                                  style: GoogleFonts.kronaOne(
+                                    color: color.colorText1,
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        checked = !checked;
-                                      });
-                                    },
-                                    child: Row(
-                                      spacing: 5,
-                                      children: [
-                                        Checkbox(
-                                          value: checked,
-                                          onChanged: (v) {},
-                                        ),
-                                        Text(
-                                          "Undergrad",
-                                          style: GoogleFonts.kronaOne(
-                                            color: color.colorText1,
-                                            fontSize: fSize * 0.6,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        checked = !checked;
-                                      });
-                                    },
-                                    child: Row(
-                                      spacing: 5,
-                                      children: [
-                                        Checkbox(
-                                          value: checked,
-                                          onChanged: (v) {},
-                                        ),
-                                        Text(
-                                          "Postagraduate",
-                                          style: GoogleFonts.kronaOne(
-                                            color: color.colorText1,
-                                            fontSize: fSize * 0.6,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        checked = !checked;
-                                      });
-                                    },
-                                    child: Row(
-                                      spacing: 5,
-                                      children: [
-                                        Checkbox(
-                                          value: checked,
-                                          onChanged: (v) {},
-                                        ),
-                                        Text(
-                                          "Not applicable",
-                                          style: GoogleFonts.kronaOne(
-                                            color: color.colorText1,
-                                            fontSize: fSize * 0.6,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    Gap(20),
+
+                    Gap(100),
                     Button(text: "Next", width: btnWidth, size: fSize),
                   ],
                 ),

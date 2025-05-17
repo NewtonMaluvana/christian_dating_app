@@ -44,6 +44,7 @@ dependencies:
   date_field: ^6.0.3+1
   jiffy: ^6.4.3
   custom_bottom_picker: ^1.0.2
+  vertical_weight_slider: ^2.6.0
 
 dev_dependencies:
   flutter_test:
