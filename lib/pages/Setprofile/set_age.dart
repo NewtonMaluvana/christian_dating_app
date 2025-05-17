@@ -7,9 +7,9 @@ import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:dating_app/Fonts/size.dart';
 import 'package:dating_app/colors/colors.dart';
 import 'package:gap/gap.dart';
-import 'package:intl/intl.dart';
+import 'package:custom_bottom_picker/custom_bottom_picker.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 

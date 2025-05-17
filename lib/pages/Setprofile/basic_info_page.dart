@@ -125,7 +125,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
-                            spacing: 20,
+                            spacing: 5,
                             children: [
                               Text(
                                 "Marriage Status",
@@ -143,7 +143,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -166,7 +166,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -189,7 +189,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -212,7 +212,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -235,7 +235,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -257,7 +257,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.all(20),
+                          margin: EdgeInsets.all(10),
                           padding: EdgeInsets.all(10),
                           width: btnWidth * 1.2,
                           decoration: BoxDecoration(
@@ -265,7 +265,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
-                            spacing: 20,
+                            spacing: 10,
                             children: [
                               Text(
                                 "Education level",
@@ -283,7 +283,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -306,7 +306,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -329,7 +329,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -352,7 +352,7 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                                       });
                                     },
                                     child: Row(
-                                      spacing: 20,
+                                      spacing: 5,
                                       children: [
                                         Checkbox(
                                           value: checked,
@@ -375,6 +375,8 @@ class _BasicInfoPageState extends State<BasicInfoPage> {
                         ),
                       ],
                     ),
+                    Gap(20),
+                    Button(text: "Next", width: btnWidth, size: fSize),
                   ],
                 ),
               ),
